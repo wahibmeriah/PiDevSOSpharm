@@ -10,4 +10,6 @@ package tunif;
  */
 public class Mobile {
     
+    int a ;
+    int b;
 }
