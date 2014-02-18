@@ -11,6 +11,7 @@ package tunif;
 public class Mobile {
     String a  ;
         String b  ;
+        String confli;
        
     
 }
