@@ -20,10 +20,10 @@ public class PharmacieDAO {
         String requete = "insert into pharmacie (code_pharmacie,nom_pharmacie,adresse_pharmacie,tel_pharmacie,type_pharmacie) values (?,?,?,?,?)";
         try {
             PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
-            ps.setString(1, d.getCode_pharmacie());
+            ps.setInt(1, d.getCode_pharmacie());
             ps.setString(2, d.getNom_pharmacie());
-            ps.setString(3, d.get.Adresse_pharmacie());
-            ps.setString(4, d.getTel_pharmacie());
+            ps.setString(3, d.getAdresse_pharmacie());
+            ps.setInt(4, d.getTel_pharmacie());
             ps.setString(5, d.getType_pharmacie());
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
