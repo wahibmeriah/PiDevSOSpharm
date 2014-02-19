@@ -9,6 +9,9 @@ package tunif;
  * @author Meriah
  */
 public class Mobile {
+    String a  ;
+    String b  ;
+    private int test;
     
     int a ;
     int b;
