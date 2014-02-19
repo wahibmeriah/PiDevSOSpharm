@@ -24,6 +24,10 @@ public class Pharmacie {
         this.type_pharmacie=type_pharmacie;
         }
 
+    public Pharmacie() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getCode_pharmacie() {
         return code_pharmacie;
     }
