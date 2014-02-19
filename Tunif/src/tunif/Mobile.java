@@ -13,6 +13,4 @@ public class Mobile {
     String b  ;
     private int test;
     
-    int a ;
-    int b;
 }
