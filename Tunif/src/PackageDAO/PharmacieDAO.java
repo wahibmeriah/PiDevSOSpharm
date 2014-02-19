@@ -6,9 +6,12 @@ package PackageDAO;
 
 import ConnectionBD.Connection;
 import PackageClass.Pharmacie;
+import java.beans.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -62,7 +65,7 @@ public class PharmacieDAO {
             System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
-           public Pharmacie findDepotById(int code_pharmacie){
+           public Pharmacie findPharmacieById(int code_pharmacie){
     Pharmacie pharm = new Pharmacie();
      String requete = "select * from pharmacie where code_pharmacie=?";
         try {
@@ -85,6 +88,35 @@ public class PharmacieDAO {
             return null;
         }
     }
+            public List<Pharmacie> DisplayAllFharmacies (){
+
+
+        List<Pharmacie> listePharmacie = new ArrayList<Pharmacie>();
+
+        String requete = "select * from pharmacie";
+        try {
+           Statement statement = Connection.getInstance().createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            
+
+            while(resultat.next()){
+                Pharmacie pharm =new Pharmacie();
+                pharm.setCode_pharmacie(resultat.getInt(1));
+                pharm.setNom_pharmacie(resultat.getString(2));
+                pharm.setAdresse_pharmacie(resultat.getString(3));
+                pharm.setTel_pharmacie(resultat.getInt(4));
+                pharm.setType_pharmacie(resultat.getString(5));
+
+                listePharmacie.add(pharm);
+            }
+            return listePharmacie;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des depots "+ex.getMessage());
+            return null;
+        }
+    }
+
 
     
 }

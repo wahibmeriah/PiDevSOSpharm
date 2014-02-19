@@ -7,6 +7,7 @@ package ConnectionBD;
 
 
 
+import java.beans.Statement;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -47,6 +48,12 @@ public class Connection {
    }
 
     public PreparedStatement prepareStatement(String requete) {
+        throw new UnsupportedOperationException("Not yet implemented");
+    }
+
+   
+
+    public Statement createStatement() {
         throw new UnsupportedOperationException("Not yet implemented");
     }
 }
