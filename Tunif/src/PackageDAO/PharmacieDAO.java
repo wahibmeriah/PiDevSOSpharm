@@ -31,4 +31,5 @@ public class PharmacieDAO {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
+        //
     }
