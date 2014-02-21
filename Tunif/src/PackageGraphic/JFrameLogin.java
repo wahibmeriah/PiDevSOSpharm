@@ -4,9 +4,14 @@
  */
 package PackageGraphic;
 
+import ConnectionBD.Connection;
 import PackageClass.Login;
 import PackageDAO.LoginDAO;
 import PackageDAO.PharmacieDAO;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 
 /**
@@ -126,7 +131,64 @@ public class JFrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-  
+    int nn = 0;
+      // String login ="";
+       String password = "";
+       //login =txt_login.getText();
+       Connection con;
+      if(jTextField1.getText().isEmpty()== true || jTextField2.getText().isEmpty()== true)
+			{
+				JOptionPane.showMessageDialog(null, "Veuillez saisir votre Login et Pw");
+				
+			}
+			else  {
+				try{
+					 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+				}
+					catch(ClassNotFoundException ex) 
+                                            
+					{
+					JOptionPane.showMessageDialog(null,"Driver introuvable"+ex.getMessage());
+					}
+				  try{   
+				
+                                      
+				String url = "jdbc:mysql://localhost:3306/SOS";
+					con=(Connection) DriverManager.getConnection(url,"root","root");
+					String login=jTextField1.getText();
+					String pw=jTextField2.getText();
+					
+					String sql = "select count(*) from admin where Login = '"+login+"' and mdp = '"+pw+"'";
+					try { 
+						Statement stmt = (Statement) con.createStatement();
+						ResultSet result = stmt.executeQuery(sql);
+						while(result.next()) 
+						{
+							  nn = result.getInt(1);
+							
+						}
+						} catch (SQLException ex) { 
+						JOptionPane.showMessageDialog(null,"Erreur de requete"+ex.getMessage());
+						 }
+				}
+					catch (SQLException ex) { 
+					JOptionPane.showMessageDialog(null,"Erreur de connexion gggg"+ex.getMessage());
+					}
+				 
+				if(nn==1)
+					{
+					Login m = new Login();
+                                        m.setVisible(true);
+					this.dispose();
+					}
+				 if (nn==0)
+				 {
+					JOptionPane.showMessageDialog(null, " Login et Pw erroner");
+				 }
+			
+			
+				
+	}  
        
         
        
