@@ -95,8 +95,9 @@ public class PharmacieDAO {
 
         String requete = "select * from pharmacie";
         try {
-           Statement statement = Connection.getInstance().createStatement();
-            ResultSet resultat = statement.executeQuery(requete);
+          
+           PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+              ResultSet resultat = ps.executeQuery();
             
 
             while(resultat.next()){

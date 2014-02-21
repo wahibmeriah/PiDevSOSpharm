@@ -48,14 +48,16 @@ public class Connection {
    }
 
     public PreparedStatement prepareStatement(String requete) {
-        throw new UnsupportedOperationException("Not yet implemented");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-   
 
     public Statement createStatement() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+  
+
+    
 }
 
 
