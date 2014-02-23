@@ -5,31 +5,31 @@
 
 package ConnectionBD;
 
-
-
-import java.beans.Statement;
+import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-public class Connection {
+/**
+ *
+ * @author Karray
+ */
+public class SosConnection {
 
      private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:3306/SOS";
+   private static final  String url = "jdbc:mysql://localhost:3306/ds";
    private static final  String login = "root";
    private static final  String pwd = "root";
    private static Connection con;
 
 
-   private Connection(){
+   private SosConnection(){
 
    }
 
    public Connection etablirConnection(){
         try {
             Class.forName(driver);
-            con = (Connection) DriverManager.getConnection(url,login,pwd);
+            con = DriverManager.getConnection(url,login,pwd);
             System.out.println("Connexion établie");
         } catch (ClassNotFoundException ex) {
             //Logger.getLogger(MyConnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,23 +42,8 @@ public class Connection {
     }
    public static Connection getInstance(){
        if (con==null){
-           new Connection().etablirConnection();
+           new SosConnection().etablirConnection();
        }
    return con;
    }
-
-    public PreparedStatement prepareStatement(String requete) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    public Statement createStatement() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-  
-
-    
 }
-
-
-//

@@ -4,7 +4,7 @@
  */
 package PackageGraphic;
 
-import ConnectionBD.Connection;
+import ConnectionBD.SosConnection;
 import PackageClass.Login;
 import PackageDAO.LoginDAO;
 import PackageDAO.PharmacieDAO;
@@ -135,7 +135,7 @@ public class JFrameLogin extends javax.swing.JFrame {
       // String login ="";
        String password = "";
        //login =txt_login.getText();
-       Connection con;
+       SosConnection con;
       if(jTextField1.getText().isEmpty()== true || jTextField2.getText().isEmpty()== true)
 			{
 				JOptionPane.showMessageDialog(null, "Veuillez saisir votre Login et Pw");
@@ -154,7 +154,7 @@ public class JFrameLogin extends javax.swing.JFrame {
 				
                                       
 				String url = "jdbc:mysql://localhost:3306/SOS";
-					con=(Connection) DriverManager.getConnection(url,"root","root");
+					con=(SosConnection) DriverManager.getConnection(url,"root","root");
 					String login=jTextField1.getText();
 					String pw=jTextField2.getText();
 					

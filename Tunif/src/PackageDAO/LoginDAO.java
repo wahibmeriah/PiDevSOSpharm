@@ -4,7 +4,7 @@
  */
 package PackageDAO;
 
-import ConnectionBD.Connection;
+import ConnectionBD.SosConnection;
 import PackageClass.Login;
 //import PackageClass.Pharmacie;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ public class LoginDAO {
 
         String requete = "insert into login(id,login,mdp) values (?,?,?)";
         try {
-            PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = SosConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, d.getId());
             ps.setString(2, d.getLogin());
             ps.setString(3, d.getMdp());
