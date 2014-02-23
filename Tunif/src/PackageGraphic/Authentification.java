@@ -9,6 +9,7 @@ package PackageGraphic;
  *
  * @author Med
  */
+import PackageDAO.LoginDAO;
 import java.awt.*;
 import java.sql.*;
 import javax.swing.*;
@@ -18,12 +19,13 @@ public class Authentification extends javax.swing.JFrame {
     ResultSet re = null;
     PreparedStatement pst = null;
     
-
+ private int nn;
     /**
      * Creates new form Authentification
      */
     public Authentification() {
         initComponents();
+        
     }
 
     /**
@@ -118,11 +120,64 @@ public class Authentification extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
      // close();
-       
-        
-        
-       Acceuil ac = new Acceuil();
+        LoginDAO logDAO = new LoginDAO();
+        String login= t1.getText();
+        String pass= t2.getText();
+          if(t1.getText().isEmpty()== true || t2.getText().isEmpty()== true)
+			{
+				JOptionPane.showMessageDialog(null, "Veuillez saisir votre Login et Pw");
+				
+			}
+			else  {
+				try{
+					 Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
+				}
+					catch(ClassNotFoundException ex) 
+                                            
+					{
+					JOptionPane.showMessageDialog(null,"Driver introuvable"+ex.getMessage());
+					}
+				  try{   
+				
+				String url = "jdbc:mysql://localhost:3306/sos";
+					conn=DriverManager.getConnection(url,"root","");
+					
+					
+					String sql = "select count(*) from admin where Login = '"+login+"' and mdp = '"+pass+"'";
+					try { 
+						Statement stmt = conn.createStatement();
+						ResultSet result = stmt.executeQuery(sql);
+						while(result.next()) 
+						{
+							  nn = result.getInt(1);
+							
+						}
+						} catch (SQLException ex) { 
+						JOptionPane.showMessageDialog(null,"Erreur de requete"+ex.getMessage());
+						 }
+				}
+					catch (SQLException ex) { 
+					JOptionPane.showMessageDialog(null,"Erreur de connexion gggg"+ex.getMessage());
+					}
+				 
+				if(nn==1)
+					{
+					 Acceuil ac = new Acceuil();
        ac.setVisible(true);
+					this.dispose();
+					}
+				 if (nn==0)
+				 {
+					JOptionPane.showMessageDialog(null, " Login et Pw erroner");
+				 }
+			
+			
+				
+	}
+    
+        
+        
+      
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
