@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package ConnectionBD;
+package utill;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -13,21 +13,21 @@ import java.sql.SQLException;
  *
  * @author Karray
  */
-public class SosConnection {
+public class MyConnection {
 
-     private static final  String driver = "com.mysql.jdbc.Driver";
-   private static final  String url = "jdbc:mysql://localhost:3306/ds";
+   private static final  String driver = "com.mysql.jdbc.Driver";
+   private static final  String url = "jdbc:mysql://localhost:3306/sos";
    private static final  String login = "root";
    private static final  String pwd = "root";
    private static Connection con;
 
 
-   private SosConnection(){
+   private MyConnection(){
 
    }
 
    public Connection etablirConnection(){
-        try {
+      try {
             Class.forName(driver);
             con = DriverManager.getConnection(url,login,pwd);
             System.out.println("Connexion établie");
@@ -42,7 +42,7 @@ public class SosConnection {
     }
    public static Connection getInstance(){
        if (con==null){
-           new SosConnection().etablirConnection();
+           new MyConnection().etablirConnection();
        }
    return con;
    }

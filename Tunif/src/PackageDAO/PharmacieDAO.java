@@ -4,9 +4,8 @@
  */
 package PackageDAO;
 
-import ConnectionBD.SosConnection;
+import utill.MyConnection;
 import PackageClass.Pharmacie;
-import java.beans.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -21,14 +20,14 @@ public class PharmacieDAO {
     
      public void insertPharmacie(Pharmacie d){
 
-        String requete = "insert into pharmacie (nom_pharmacie) values (?)";
+        String requete = "insert into pharmacie (nom_pharmacie,adresse_pharmacie,tel_pharmacie,	type_pharmacie) values (?,?,?,?)";
         try {
-            PreparedStatement ps = SosConnection.getInstance().prepareStatement(requete);
-          /*  ps.setInt(1, d.getCode_pharmacie()); */
-            ps.setString(2, d.getNom_pharmacie());
-           /* ps.setString(3, d.getAdresse_pharmacie());
-            ps.setInt(4, d.getTel_pharmacie());
-            ps.setString(5, d.getType_pharmacie()); */
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            
+            ps.setString(1, d.getNom_pharmacie());
+            ps.setString(2, d.getAdresse_pharmacie());
+            ps.setInt(3, d.getTel_pharmacie());
+            ps.setString(4, d.getType_pharmacie()); 
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
@@ -37,10 +36,10 @@ public class PharmacieDAO {
         }
      }
         //
-       /*   public void updatePharmacie(Pharmacie d){
+         public void updatePharmacie(Pharmacie d){
         String requete = "update pharmacie set code_pharmacie=?, set nom_pharmacie=?, set adresse_pharmacie=?, set tel_pharmacie=?,set type_pharmacie=? where code_pharmacie=?";
         try {
-            PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, d.getCode_pharmacie());
             ps.setString(2, d.getNom_pharmacie());
             ps.setString(3, d.getAdresse_pharmacie());
@@ -56,7 +55,7 @@ public class PharmacieDAO {
           public void deletePharmacie(int code_pharmacie){
         String requete = "delete from pharmacie where code_pharmacie=?";
         try {
-            PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, code_pharmacie);
             ps.executeUpdate();
             System.out.println("Pharmacie supprimée");
@@ -69,7 +68,7 @@ public class PharmacieDAO {
     Pharmacie pharm = new Pharmacie();
      String requete = "select * from pharmacie where code_pharmacie=?";
         try {
-            PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, code_pharmacie);
             ResultSet resultat = ps.executeQuery();
             while (resultat.next())
@@ -96,7 +95,7 @@ public class PharmacieDAO {
         String requete = "select * from pharmacie";
         try {
           
-           PreparedStatement ps = Connection.getInstance().prepareStatement(requete);
+           PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
               ResultSet resultat = ps.executeQuery();
             
 
@@ -118,6 +117,6 @@ public class PharmacieDAO {
         }
     }
 
-*/
+
     
 }

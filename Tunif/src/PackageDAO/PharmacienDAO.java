@@ -6,7 +6,7 @@
 
 package PackageDAO;
 import PackageClass.Pharmacien;
-import ConnectionBD.SosConnection;
+import utill.MyConnection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -24,7 +24,7 @@ public class PharmacienDAO {
 
         String requete = "insert into pharmacien (id_pharm,nom_pharm,pr_pharm,email_pharm,login_pharm,mdp_pharm) values (?,?,?,?,?,?)";
         try {
-            PreparedStatement ps = SosConnection.getInstance().prepareStatement(requete);
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, d.getId_pharm());
             ps.setString(2, d.getNom_pharm());
             ps.setString(3, d.getPre_pharm());
