@@ -4,21 +4,23 @@
  */
 package PackageGraphic;
 
-import ConnectionBD.SosConnection;
-import PackageClass.Login;
-import PackageDAO.LoginDAO;
-import PackageDAO.PharmacieDAO;
+import java.awt.Menu;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
-
+import java.sql.Connection;
 /**
  *
  * @author Med
  */
 public class JFrameLogin extends javax.swing.JFrame {
+    Connection con =null;
+  
+
+    private int nn;
+   
 
     /**
      * Creates new form JFrameLogin
@@ -39,8 +41,8 @@ public class JFrameLogin extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jlogin = new javax.swing.JTextField();
+        jpw = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
 
@@ -62,9 +64,9 @@ public class JFrameLogin extends javax.swing.JFrame {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jlogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jloginActionPerformed(evt);
             }
         });
 
@@ -97,8 +99,8 @@ public class JFrameLogin extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(140, 140, 140)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
+                    .addComponent(jlogin, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                    .addComponent(jpw))
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(82, 82, 82)
@@ -115,11 +117,11 @@ public class JFrameLogin extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jlogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(63, 63, 63)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jpw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
@@ -131,12 +133,12 @@ public class JFrameLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    int nn = 0;
+     
       // String login ="";
        String password = "";
        //login =txt_login.getText();
-       SosConnection con;
-      if(jTextField1.getText().isEmpty()== true || jTextField2.getText().isEmpty()== true)
+       
+      if(jlogin.getText().isEmpty()== true || jpw.getText().isEmpty()== true)
 			{
 				JOptionPane.showMessageDialog(null, "Veuillez saisir votre Login et Pw");
 				
@@ -152,15 +154,14 @@ public class JFrameLogin extends javax.swing.JFrame {
 					}
 				  try{   
 				
-                                      
-				String url = "jdbc:mysql://localhost:3306/SOS";
-					con=(SosConnection) DriverManager.getConnection(url,"root","root");
-					String login=jTextField1.getText();
-					String pw=jTextField2.getText();
+				String url = "jdbc:mysql://localhost:3306/sos";
+                                  con = DriverManager.getConnection(url,"root","");
+					String login=jlogin.getText();
+					String pw=jpw.getText();
 					
-					String sql = "select count(*) from admin where Login = '"+login+"' and mdp = '"+pw+"'";
+					String sql = "select count(*) from admin where login = '"+login+"' and Password = '"+pw+"'";
 					try { 
-						Statement stmt = (Statement) con.createStatement();
+						Statement stmt = con.createStatement();
 						ResultSet result = stmt.executeQuery(sql);
 						while(result.next()) 
 						{
@@ -177,9 +178,7 @@ public class JFrameLogin extends javax.swing.JFrame {
 				 
 				if(nn==1)
 					{
-					Login m = new Login();
-                                        m.setVisible(true);
-					this.dispose();
+					
 					}
 				 if (nn==0)
 				 {
@@ -188,18 +187,18 @@ public class JFrameLogin extends javax.swing.JFrame {
 			
 			
 				
-	}  
+	}
        
         
        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jloginActionPerformed
         
        
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jloginActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
@@ -255,7 +254,7 @@ public class JFrameLogin extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jlogin;
+    private javax.swing.JTextField jpw;
     // End of variables declaration//GEN-END:variables
 }
