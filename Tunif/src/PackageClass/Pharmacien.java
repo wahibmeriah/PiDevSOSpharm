@@ -25,6 +25,10 @@ public class Pharmacien {
         this.mdp_pharm = mdp_pharm;
     }
 
+    public Pharmacien() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_pharm() {
         return id_pharm;
     }
