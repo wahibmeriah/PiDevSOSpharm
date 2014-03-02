@@ -39,12 +39,12 @@ String [] columTab = {"IDpharmacien","Login","Mot de Passe","Email","Nom","Preno
     public Object getValueAt(int rowIndex, int columnIndex) {
        switch(columnIndex)
        {
-          case 0 : return pharmacien.get(rowIndex).getId_pharm();
-          case 1 : return pharmacien.get(rowIndex).getLogin_pharm();
-          case 2: return pharmacien.get(rowIndex).getMdp_pharm();
-          case 3: return pharmacien.get(rowIndex).getEmail_pharm();
-          case 4: return pharmacien.get(rowIndex).getNom_pharm();
-          case 5: return pharmacien.get(rowIndex).getPre_pharm();
+          case 0: return  pharmacien.get(rowIndex).getId_pharm();
+          case 1: return  pharmacien.get(rowIndex).getLogin_pharm();
+          case 2: return  pharmacien.get(rowIndex).getMdp_pharm();
+          case 3: return  pharmacien.get(rowIndex).getEmail_pharm();
+          case 4: return  pharmacien.get(rowIndex).getNom_pharm();
+          case 5: return  pharmacien.get(rowIndex).getPre_pharm();
               
               
           default: return null;

@@ -1,22 +1,24 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package PackageClass;
 
 /**
  *
- * @author Med
+ * @author ESPRIT
  */
-public class Pharmacien {
-    private int id_pharm;
+public class Test {
+     private int id_pharm;
     private String nom_pharm;
     private String pre_pharm;
     private String email_pharm;
     private String login_pharm;
     private String mdp_pharm;
 
-    public Pharmacien(int id_pharm, String nom_pharm, String pre_pharm, String email_pharm, String login_pharm, String mdp_pharm) {
+    public Test(int id_pharm, String nom_pharm, String pre_pharm, String email_pharm, String login_pharm, String mdp_pharm) {
         this.id_pharm = id_pharm;
         this.nom_pharm = nom_pharm;
         this.pre_pharm = pre_pharm;
@@ -24,9 +26,6 @@ public class Pharmacien {
         this.login_pharm = login_pharm;
         this.mdp_pharm = mdp_pharm;
     }
-
-    public Pharmacien() {
-        }
 
     public int getId_pharm() {
         return id_pharm;
@@ -78,8 +77,12 @@ public class Pharmacien {
 
     @Override
     public String toString() {
-        return "Pharmacien{" + "id_pharm=" + id_pharm + ", nom_pharm=" + nom_pharm + ", pre_pharm=" + pre_pharm + ", email_pharm=" + email_pharm + ", login_pharm=" + login_pharm + ", mdp_pharm=" + mdp_pharm + '}';
+        return "Test{" + "id_pharm=" + id_pharm + ", nom_pharm=" + nom_pharm + ", pre_pharm=" + pre_pharm + ", email_pharm=" + email_pharm + ", login_pharm=" + login_pharm + ", mdp_pharm=" + mdp_pharm + '}';
     }
+
+    public Test() {
+    }
+    
     
     
     

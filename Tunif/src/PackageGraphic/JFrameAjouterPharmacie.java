@@ -150,12 +150,12 @@ public class JFrameAjouterPharmacie extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     
         
-        PharmacieDAO pharmDAO = new PharmacieDAO();
+       PharmacieDAO pharmDAO = new PharmacieDAO();
        String Nom= jnom.getText();
        String Prenom=jprenom.getText();
        String tel=jtel.getText();
        String type=jtype.getText();
-        Pharmacie p = new Pharmacie();
+       Pharmacie p = new Pharmacie();
        p.setNom_pharmacie(Nom);
        p.setAdresse_pharmacie(Prenom);
        p.setTel_pharmacie(WIDTH);
