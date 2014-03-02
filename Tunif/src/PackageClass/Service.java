@@ -12,4 +12,26 @@ package PackageClass;
  */
 public class Service {
     
+    private String typeservice;
+
+    public String getTypeservice() {
+        return typeservice;
+    }
+
+    public Service(String typeservice) {
+        this.typeservice = typeservice;
+    }
+
+    public Service() {
+    }
+
+    @Override
+    public String toString() {
+        return "Service{" + "typeservice=" + typeservice + '}';
+    }
+
+    public void setTypeservice(String typeservice) {
+        this.typeservice = typeservice;
+    }
+    
 }
