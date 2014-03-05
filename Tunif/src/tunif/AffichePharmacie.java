@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package PackageGraphic;
+package tunif;
 
 import PackageDAO.PharmacieDAO;
 import PackageClass.Pharmacie;
@@ -14,11 +14,11 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author USER
  */
-public class AfficherPharmacie extends AbstractTableModel{
+public class AffichePharmacie extends AbstractTableModel{
 
 List <Pharmacie> pharmacie;
-String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type"};
-    public AfficherPharmacie() {
+String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type","Gouvernerat"};
+    public AffichePharmacie() {
         PharmacieDAO pharmacieDAO = new PharmacieDAO();
         pharmacie = pharmacieDAO.DisplayAllFharmacies();
 
@@ -43,7 +43,8 @@ String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","T
           case 1 : return pharmacie.get(rowIndex).getNom_pharmacie();
           case 2: return pharmacie.get(rowIndex).getAdresse_pharmacie();
           case 3: return pharmacie.get(rowIndex).getTel_pharmacie();
-          case 4: return pharmacie.get(rowIndex).getType_pharmacie();    
+          case 4: return pharmacie.get(rowIndex).getType_pharmacie();  
+               case 5: return pharmacie.get(rowIndex).getGouvernerat();   
               
           default: return null;
        }

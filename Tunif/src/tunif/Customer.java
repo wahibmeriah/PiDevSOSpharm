@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package PackageGraphic;
+package tunif;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;

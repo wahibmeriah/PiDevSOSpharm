@@ -20,7 +20,7 @@ public class PieChartEtatPharmacie {
         DefaultPieDataset result = new DefaultPieDataset();
         PharmacieDAO phDAO = new PharmacieDAO();
 
-        result.setValue("Service Ye7med Rabbi(3al 7it)", phDAO.getEtatPharmacieNormale());
+        result.setValue("Service Ye7med Rabbi(3al 7it)", phDAO.EtatPharmacieNormale());
         result.setValue("Service Normale", phDAO.getEtatPharmacieMoyenne());
         result.setValue("Service Tayara", phDAO.getEtatPharmacieExecelon());
 

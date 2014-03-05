@@ -6,6 +6,8 @@
 
 package PackageGraphic;
 
+import tunif.AfficherPharmacien;
+
 /**
  *
  * @author ESPRIT
