@@ -13,6 +13,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -63,7 +65,7 @@ public class TestDAO {
 
             while(resultat.next()){
                 Test pharm =new Test();
-                pharm.setId_pharm(resultat.getInt(1));
+               // pharm.setId_pharm(resultat.getInt(1));
                 pharm.setLogin_pharm(resultat.getString(2));
                 pharm.setMdp_pharm(resultat.getString(3));
                 pharm.setEmail_pharm(resultat.getString(4));
@@ -78,6 +80,46 @@ public class TestDAO {
            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors du chargement des depots "+ex.getMessage());
             return null;
+        }
+    }
+             public List<Test> DisplayAllFharmacies_2 (){
+
+
+        List<Test> listeDemande = new ArrayList<Test>();
+
+        String requete = "select count(id_pharm) from test";
+        try {
+          
+           PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+              ResultSet resultat = ps.executeQuery();
+            
+
+            while(resultat.next()){
+                Test pharm =new Test();
+                pharm.setId_pharm(resultat.getInt(1));
+               // pharm.setNom_pharmacie(resultat.getString(2));
+                //pharm.setAdresse_pharmacie(resultat.getString(3));
+                //pharm.setTel_pharmacie(resultat.getInt(4));
+               // pharm.setType_pharmacie(resultat.getString(5));
+            
+                listeDemande.add(pharm); }           
+            return listeDemande;
+        } catch (SQLException ex) {
+           //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement des demandes "+ex.getMessage());
+            return null;
+        }
+    }
+               public void deleteTest(int id_pharm){
+        String requete = "delete from test where id_pharm=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setInt(1, id_pharm);
+            ps.executeUpdate();
+            System.out.println("Pharmacien supprimée");
+        } catch (SQLException ex) {
+           Logger.getLogger(TestDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }
 

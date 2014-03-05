@@ -11,6 +11,8 @@ package PackageGraphic;
  */
 import PackageDAO.LoginDAO;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.*;
 import javax.swing.*;
 
@@ -53,6 +55,12 @@ public class Authentification extends javax.swing.JFrame {
 
         jLabel2.setText("Password :");
 
+        t1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                t1ActionPerformed(evt);
+            }
+        });
+
         t2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 t2ActionPerformed(evt);
@@ -67,7 +75,7 @@ public class Authentification extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(238, Short.MAX_VALUE)
                 .addComponent(jLabel3)
                 .addGap(221, 221, 221))
             .addGroup(jPanel2Layout.createSequentialGroup()
@@ -189,7 +197,6 @@ public class Authentification extends javax.swing.JFrame {
 				 }
                                   
 				}
-         
           
           
           
@@ -208,6 +215,11 @@ public class Authentification extends javax.swing.JFrame {
     private void t2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_t2ActionPerformed
+
+    private void t1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_t1ActionPerformed
+       
+        
+    }//GEN-LAST:event_t1ActionPerformed
 
     /**
      * @param args the command line arguments
