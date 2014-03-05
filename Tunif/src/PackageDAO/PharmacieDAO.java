@@ -35,6 +35,60 @@ public class PharmacieDAO {
             System.out.println("erreur lors de l'insertion "+ex.getMessage());
         }
      }
+      public int getEtatPharmacieExecelon() {
+
+        String requete = "select * from pharmacie where etat='excelent';";
+        try {
+            java.sql.PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+
+            int nb = 0;
+            while (resultat.next()) {
+                nb = nb + 1;
+            }
+            return nb;
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement de Service des Pharmacie " + ex.getMessage());
+            return -1;
+        }
+    }
+       public int getEtatPharmacieMoyenne() {
+
+        String requete = "select * from pharmacie where etat='moyenne';";
+        try {
+            java.sql.PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+
+            int nb = 0;
+            while (resultat.next()) {
+                nb = nb + 1;
+            }
+            return nb;
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement de Service des Pharmacie " + ex.getMessage());
+            return -1;
+        }
+    }
+        public int getEtatPharmacieNormale() {
+
+        String requete = "select * from pharmacie where etat='normale';";
+        try {
+            java.sql.PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ResultSet resultat = ps.executeQuery();
+
+            int nb = 0;
+            while (resultat.next()) {
+                nb = nb + 1;
+            }
+            return nb;
+        } catch (SQLException ex) {
+            //Logger.getLogger(PersonneDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("erreur lors du chargement de Service des Pharmacie " + ex.getMessage());
+            return -1;
+        }
+    }
         //
          public void updatePharmacie(Pharmacie d){
         String requete = "update pharmacie set code_pharmacie=?, set nom_pharmacie=?, set adresse_pharmacie=?, set tel_pharmacie=?,set type_pharmacie=? where code_pharmacie=?";
