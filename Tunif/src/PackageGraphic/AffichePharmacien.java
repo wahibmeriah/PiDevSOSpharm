@@ -18,6 +18,9 @@ public class AffichePharmacien extends javax.swing.JFrame {
      * Creates new form AffichePharmacien
      */
     public AffichePharmacien() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 

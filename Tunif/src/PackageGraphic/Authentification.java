@@ -15,6 +15,7 @@ import java.sql.*;
 import javax.swing.*;
 
 public class Authentification extends javax.swing.JFrame {
+   
     Connection conn = null;
     ResultSet re = null;
     PreparedStatement pst = null;
@@ -24,6 +25,9 @@ public class Authentification extends javax.swing.JFrame {
      * Creates new form Authentification
      */
     public Authentification() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
         
     }

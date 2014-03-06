@@ -20,6 +20,9 @@ public class EspacePharmacie extends javax.swing.JFrame {
      * Creates new form EspacePharmacie
      */
     public EspacePharmacie() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
         chargmentStatistique();
     }

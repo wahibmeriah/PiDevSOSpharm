@@ -25,6 +25,9 @@ public class EspaceClient extends javax.swing.JFrame {
      * Creates new form EspaceClient
      */
     public EspaceClient() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 

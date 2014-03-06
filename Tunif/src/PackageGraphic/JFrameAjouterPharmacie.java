@@ -18,6 +18,9 @@ public class JFrameAjouterPharmacie extends javax.swing.JFrame {
      * Creates new form JFrameAjouterPharmacie
      */
     public JFrameAjouterPharmacie() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 

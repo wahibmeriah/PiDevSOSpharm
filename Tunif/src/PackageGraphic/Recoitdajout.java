@@ -20,6 +20,9 @@ public class Recoitdajout extends javax.swing.JFrame {
      * Creates new form Demandeajout
      */
     public Recoitdajout() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 

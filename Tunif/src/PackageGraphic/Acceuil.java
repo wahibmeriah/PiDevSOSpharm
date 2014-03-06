@@ -14,6 +14,9 @@ public class Acceuil extends javax.swing.JFrame {
      * Creates new form Acceuil
      */
     public Acceuil() {
+        this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 

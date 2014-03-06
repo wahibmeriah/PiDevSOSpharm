@@ -28,6 +28,9 @@ Connection conn = null;
      * Creates new form Loginpharmacien
      */
     public Loginpharmacien() {
+         this.setSize(1020,600 );
+        this.setLocationRelativeTo(null);
+        this.setLayout(null);
         initComponents();
     }
 
