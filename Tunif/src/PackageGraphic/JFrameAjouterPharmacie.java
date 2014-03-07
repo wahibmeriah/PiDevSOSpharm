@@ -49,6 +49,7 @@ public class JFrameAjouterPharmacie extends javax.swing.JFrame {
         jLabel3.setText("jLabel3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(662, 466));
 
         jLabel1.setText("Nom");
 

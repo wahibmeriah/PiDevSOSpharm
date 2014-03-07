@@ -11,14 +11,14 @@ package PackageClass;
  * @author ESPRIT
  */
 public class Test {
-     private int id_pharm;
+     private String id_pharm;
     private String nom_pharm;
     private String pre_pharm;
     private String email_pharm;
     private String login_pharm;
     private String mdp_pharm;
 
-    public Test(int id_pharm, String nom_pharm, String pre_pharm, String email_pharm, String login_pharm, String mdp_pharm) {
+    public Test(String id_pharm, String nom_pharm, String pre_pharm, String email_pharm, String login_pharm, String mdp_pharm) {
         this.id_pharm = id_pharm;
         this.nom_pharm = nom_pharm;
         this.pre_pharm = pre_pharm;
@@ -27,7 +27,7 @@ public class Test {
         this.mdp_pharm = mdp_pharm;
     }
 
-    public int getId_pharm() {
+    public String getId_pharm() {
         return id_pharm;
     }
 
@@ -51,7 +51,7 @@ public class Test {
         return mdp_pharm;
     }
 
-    public void setId_pharm(int id_pharm) {
+    public void setId_pharm(String id_pharm) {
         this.id_pharm = id_pharm;
     }
 

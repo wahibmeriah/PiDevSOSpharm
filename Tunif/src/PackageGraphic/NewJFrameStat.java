@@ -31,6 +31,7 @@ public class NewJFrameStat extends javax.swing.JFrame {
         jPopupMenu1 = new javax.swing.JPopupMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(662, 466));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

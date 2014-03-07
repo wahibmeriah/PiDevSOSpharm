@@ -31,7 +31,7 @@ public class TestDAO {
         String requete = "insert into test (id_pharm,nom_pharm,pre_pharm,email_pharm,login_pharm,mdp_pharm) values (?,?,?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, d.getId_pharm());
+            ps.setString(1, d.getId_pharm());
             ps.setString(2, d.getNom_pharm());
             ps.setString(3, d.getPre_pharm());
             ps.setString(4, d.getEmail_pharm());
@@ -96,7 +96,7 @@ public class TestDAO {
 
             while(resultat.next()){
                 Test pharm =new Test();
-                pharm.setId_pharm(resultat.getInt(1));
+                pharm.setId_pharm(resultat.getString(1));
                // pharm.setNom_pharmacie(resultat.getString(2));
                 //pharm.setAdresse_pharmacie(resultat.getString(3));
                 //pharm.setTel_pharmacie(resultat.getInt(4));
@@ -110,15 +110,15 @@ public class TestDAO {
             return null;
         }
     }
-               public void deleteTest(int id_pharm){
-        String requete = "delete from test where id_pharm=?";
-        try {
+               public void deleteTest(String id_pharm){
+         String requete = "delete from test where id_pharm=?";
+         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, id_pharm);
+            ps.setString(1, id_pharm);
             ps.executeUpdate();
             System.out.println("Pharmacien supprimée");
         } catch (SQLException ex) {
-           Logger.getLogger(TestDAO.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(TestDAO.class.getName()).log(Level.SEVERE, null, ex);
             System.out.println("erreur lors de la suppression "+ex.getMessage());
         }
     }

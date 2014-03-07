@@ -245,7 +245,8 @@ public class PharmacieDAO {
                 pharm.setAdresse_pharmacie(resultat.getString(3));
                 pharm.setTel_pharmacie(resultat.getInt(4));
                 pharm.setType_pharmacie(resultat.getString(5));
-                pharm.setGouvernerat(resultat.getString(6));
+                pharm.setEtat(resultat.getString(6));
+                pharm.setGouvernerat(resultat.getString(7));
 
                 listePharmacie.add(pharm);
             }

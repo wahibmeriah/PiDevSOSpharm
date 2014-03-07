@@ -59,6 +59,7 @@ public class EspacePharmacie extends javax.swing.JFrame {
         jMenu1.setText("jMenu1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(662, 466));
 
         jTextField1.setText("jTextField1");
 

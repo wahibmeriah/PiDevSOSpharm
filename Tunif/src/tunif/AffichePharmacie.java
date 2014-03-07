@@ -17,7 +17,7 @@ import javax.swing.table.AbstractTableModel;
 public class AffichePharmacie extends AbstractTableModel{
 
 List <Pharmacie> pharmacie;
-String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type","Gouvernerat"};
+String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type","Etat","Gouvernerat"};
     public AffichePharmacie() {
         PharmacieDAO pharmacieDAO = new PharmacieDAO();
         pharmacie = pharmacieDAO.DisplayAllFharmacies();
@@ -44,7 +44,8 @@ String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","T
           case 2: return pharmacie.get(rowIndex).getAdresse_pharmacie();
           case 3: return pharmacie.get(rowIndex).getTel_pharmacie();
           case 4: return pharmacie.get(rowIndex).getType_pharmacie();  
-               case 5: return pharmacie.get(rowIndex).getGouvernerat();   
+          case 5: return pharmacie.get(rowIndex).getEtat();
+          case 6: return pharmacie.get(rowIndex).getGouvernerat();    
               
           default: return null;
        }

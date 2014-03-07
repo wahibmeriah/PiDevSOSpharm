@@ -21,7 +21,7 @@ List <Pharmacie> pharmacie = new ArrayList<Pharmacie>();
 Pharmacie phar;
 int v1;
 
-String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type","Gouvernerat"};
+String [] columTab = {"Code_pharmacie", "Propriétaire","Adresse","Telephone","Type","Etat","Gouvernerat"};
     public AfficherPharmacie() {
         PharmacieDAO pharmacieDAO = new PharmacieDAO();
         pharmacie = pharmacieDAO.DisplayAllFharmacies();
@@ -59,8 +59,9 @@ public AfficherPharmacie(int v1 ){
           case 1 : return pharmacie.get(rowIndex).getNom_pharmacie();
           case 2: return pharmacie.get(rowIndex).getAdresse_pharmacie();
           case 3: return pharmacie.get(rowIndex).getTel_pharmacie();
-          case 4: return pharmacie.get(rowIndex).getType_pharmacie();    
-           case 5: return pharmacie.get(rowIndex).getGouvernerat();       
+          case 4: return pharmacie.get(rowIndex).getType_pharmacie(); 
+           case 5: return pharmacie.get(rowIndex).getEtat();     
+           case 6: return pharmacie.get(rowIndex).getGouvernerat();       
           default: return null;
        }
     }
